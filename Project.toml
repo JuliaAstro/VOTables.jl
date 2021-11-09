@@ -1,0 +1,11 @@
+name = "VOTables"
+uuid = "28936e4a-6fd1-43a7-9a82-6335eb2e9cd1"
+authors = ["Miles Lucas <mdlucas@hawaii.edu> and contributors"]
+version = "0.1.0"
+
+[deps]
+EzXML = "8f5d6c58-4d21-5cfd-889c-e3ad7ee6a615"
+
+[compat]
+julia = "1.5"
+EzXML = "1"
