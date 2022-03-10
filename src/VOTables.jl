@@ -38,7 +38,7 @@ function Base.show(io::IO, vo::VOTable)
     print(io, "VOTable($n)")
 end
 
-Base.getindex(vo::VOTable, i) = VOTableData(vo.tables[i])
+Base.getindex(vo::VOTable, i) = VOTableData(vo.tables[i].node)
 
 struct VOTableData{N,F,S,T,D}
     node::N
@@ -48,14 +48,18 @@ struct VOTableData{N,F,S,T,D}
     data::D
 end
 
-struct VOTableRow{S,D} <: Tables.AbstractRow
-    names::S
-    data::D
+struct VOTableDatum{T,S,D}
+    name::S
+    type::T
+    datum::D
 end
 
-Tables.getcolumn(row::VOTableRow, i::Int) = row.data[i]
-Tables.getcolumn(row::VOTableRow, s::Symbol) = row.data[findfirst(string(s), row.names)]
-Tables.columnnames(row::VOTableRow) = Symbol.(row.names)
+Tables.columnnames(row::AbstractVector{<:VOTableDatum}) = map(d -> Symbol(d.name), row)
+function Tables.getcolumn(row::AbstractVector{<:VOTableDatum}, nm::Symbol)
+    i = findfirst(==(nm), Tables.columnnames(row))
+    return Tables.getcolumn(row, i)
+end
+Tables.getcolumn(row::AbstractVector{<:VOTableDatum}, i::Int) = row[i].datum
 
 function VOTableData(node::Node)
     ns = ["x" => namespace(node)]
@@ -74,14 +78,12 @@ function VOTableData(node::Node)
         return TYPE_MAP[datatype]
     end
     data_nodes = findfirst("x:DATA/x:TABLEDATA", node, ns)
-    data = map(eachelement(data_nodes)) do row
-        vals = map(types, eachelement(row)) do T, td
-            datum = nodecontent(td)
-            rowdata(T, datum)
+    rows = map(eachelement(data_nodes)) do row
+        map(names, types, eachelement(row)) do name, T, td
+            VOTableDatum(name, T, rowdata(T, nodecontent(td)))
         end
-        return VOTableRow(names, vals)
     end
-    return VOTableData(node, fields, names, types, data)
+    return VOTableData(node, fields, names, types, rows)
 end
 
 rowdata(::Type{<:AbstractArray{T}}, row) where {T} = safeparse.(eltype(T), split(row))
@@ -116,6 +118,6 @@ Tables.schema(table::VOTableData) = Tables.Schema(table.names, table.types)
 # Tables.jl interface
 Tables.istable(::Type{<:VOTableData}) = true
 Tables.rowaccess(::Type{<:VOTableData}) = true
-Tables.rows(table::VOTableData) = table.data
+Tables.rows(table::VOTableData) = getfield(table, :data)
 
 end # module
