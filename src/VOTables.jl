@@ -12,14 +12,7 @@ struct VOTable{X<:Document,R,T}
     tables::T
 end
 
-function VOTable(source::AbstractString)
-    # if string is path, assume we want to load from file
-    if isfile(source)
-        VOTable(parsexml(read(source)))
-    else
-        VOTable(parsexml(source))
-    end
-end
+VOTable(source::AbstractString) = VOTable(parsexml(source))
 
 function VOTable(xml::Document)
     # validate input is VOTable

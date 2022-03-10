@@ -6,7 +6,7 @@ DocMeta.setdocmeta!(VOTables, :DocTestSetup, :(using VOTables); recursive=true)
 makedocs(;
     modules=[VOTables],
     authors="Miles Lucas <mdlucas@hawaii.edu> and contributors",
-    repo="https://github.com/mileslucas/VOTables.jl/blob/{commit}{path}#{line}",
+    repo="https://github.com/JuliaAstro/VOTables.jl/blob/{commit}{path}#{line}",
     sitename="VOTables.jl",
     format=Documenter.HTML(;
         prettyurls=get(ENV, "CI", "false") == "true",
@@ -18,7 +18,7 @@ makedocs(;
 )
 
 deploydocs(
-    repo="github.com/mileslucas/VOTables.jl",
+    repo="github.com/JuliaAstro/VOTables.jl",
     push_preview=true,
     devbranch="main"
 )
