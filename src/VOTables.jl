@@ -40,16 +40,21 @@ end
 
 Base.getindex(vo::VOTable, i) = VOTableData(vo.tables[i].node)
 
-struct VOTableData{N,F,S,T,D}
+struct VOTableData{N,F,S,U,T,D}
     node::N
     fields::F
     names::S
+    units::U
     types::T
     data::D
 end
 
-struct VOTableDatum{T,S,D}
+Base.names(tbl::VOTableData) = tbl.names
+units(tbl::VOTableData) = tbl.units
+
+struct VOTableDatum{T,U,S,D}
     name::S
+    unit::U
     type::T
     datum::D
 end
@@ -65,6 +70,10 @@ function VOTableData(node::Node)
     ns = ["x" => namespace(node)]
     fields = findall("x:FIELD", node, ns)
     names = map(f -> f["name"], fields)
+    units = map(fields) do field
+        atts = map(f -> nodename(f), attributes(field))
+        return "unit" ∈ atts ? field["unit"] : missing
+    end
     types = map(fields) do field
         atts = map(f -> nodename(f), attributes(field))
         datatype = field["datatype"]
@@ -79,11 +88,11 @@ function VOTableData(node::Node)
     end
     data_nodes = findfirst("x:DATA/x:TABLEDATA", node, ns)
     rows = map(eachelement(data_nodes)) do row
-        map(names, types, eachelement(row)) do name, T, td
-            VOTableDatum(name, T, rowdata(T, nodecontent(td)))
+        map(names, units, types, eachelement(row)) do name, unit, T, td
+            VOTableDatum(name, unit, T, rowdata(T, nodecontent(td)))
         end
     end
-    return VOTableData(node, fields, names, types, rows)
+    return VOTableData(node, fields, names, units, types, rows)
 end
 
 rowdata(::Type{<:AbstractArray{T}}, row) where {T} = safeparse.(eltype(T), split(row))
@@ -113,7 +122,6 @@ TYPE_MAP = Dict(
 
 Tables.schema(table::VOTableData) = Tables.Schema(table.names, table.types)
 
-# function table(::Type{TableType})
 
 # Tables.jl interface
 Tables.istable(::Type{<:VOTableData}) = true
