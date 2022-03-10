@@ -7,12 +7,16 @@
 [![Stable](https://img.shields.io/badge/docs-stable-blue.svg)](https://JuliaAstro.github.io/VOTables.jl/stable)
 [![Dev](https://img.shields.io/badge/docs-dev-blue.svg)](https://JuliaAstro.github.io/VOTables.jl/dev)
 
-A [Tables.jl](https://github.com/JuliaData/Tables.jl)-based implementation of the VOTable standard. This allows simply accessing VOTables with Tables.jl sinks, like `DataFrame` from DataFrames.jl.
+A [Tables.jl](https://github.com/JuliaData/Tables.jl)-based implementation of the VOTable standard. This allows simply accessing VOTables with Tables.jl sinks, like `DataFrame` from [DataFrames.jl](https::/github.com/JuliaData/DataFrames.jl).
 
 **WARNING:**
 This package is fairly unpolished, and I (mileslucas) don't have a ton of time for developing it. Please use at your own caution, and I would be very eager for contributions. The end goal is to have a good suite of tools for accessing SIMBAD and Vizier, which requires a reliable VOTable parser.
 
 ## Installation
+
+```julia
+julia>] add https://github.com/JuliaAstro/VOTables.jl
+```
 
 ## Usage
 
