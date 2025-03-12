@@ -1,12 +1,13 @@
 using VOTables
 using Documenter
+using Documenter.Remotes: GitHub
 
 DocMeta.setdocmeta!(VOTables, :DocTestSetup, :(using VOTables); recursive=true)
 
 makedocs(;
     modules=[VOTables],
     authors="Miles Lucas <mdlucas@hawaii.edu> and contributors",
-    repo="https://github.com/JuliaAstro/VOTables.jl/blob/{commit}{path}#{line}",
+    repo=GitHub("JuliaAstro/VOTables.jl"),
     sitename="VOTables.jl",
     format=Documenter.HTML(;
         prettyurls=get(ENV, "CI", "false") == "true",

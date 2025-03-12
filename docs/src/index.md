@@ -30,21 +30,21 @@ pkg> add https://github.com/JuliaAstro/VOTables.jl
 julia> using VOTables, DataFrames, URIs, HTTP
 
 julia> script = """
-output console=off script=off
-votable {
-    MAIN_ID
-    RA(s)
-    DEC(s)
-    PLX(V)
-    FLUX(V)
-    FLUX(G)
-    FLUX(H)
-}
-votable open
-set radius 5m
-query around HD 32297
-votable close
-""" |> URIs.escapeuri;
+       output console=off script=off
+       votable {
+           MAIN_ID
+           RA(s)
+           DEC(s)
+           PLX(V)
+           FLUX(V)
+           FLUX(G)
+           FLUX(H)
+       }
+       votable open
+       set radius 5m
+       query around HD 32297
+       votable close
+       """ |> URIs.escapeuri;
 
 julia> res = HTTP.get("https://simbad.u-strasbg.fr/simbad/sim-script", query="script=$script");
 
