@@ -19,13 +19,14 @@ A [Tables.jl](https://github.com/JuliaData/Tables.jl)-based implementation of th
 
 ## Installation
 
-```julia
-julia>] add https://github.com/JuliaAstro/VOTables.jl
+```julia-repl
+julia> ] # to drop into pkg-mode
+pkg> add https://github.com/JuliaAstro/VOTables.jl
 ```
 
 ## Usage
 
-```julia
+```julia-repl
 julia> using VOTables, DataFrames, URIs, HTTP
 
 julia> script = """
