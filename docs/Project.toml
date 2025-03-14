@@ -1,6 +1,6 @@
 [deps]
 Documenter = "e30172f5-a6a5-5a46-863b-614d45cd2de4"
-VOTables = "6476d905-294a-4fa7-964c-b275d1823398"
+VOTables = "28936e4a-6fd1-43a7-9a82-6335eb2e9cd1"
 
 [compat]
 Documenter = "1"
