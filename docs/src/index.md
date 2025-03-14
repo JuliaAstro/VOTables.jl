@@ -12,38 +12,39 @@ CurrentModule = VOTables
 [![Stable](https://img.shields.io/badge/docs-stable-blue.svg)](https://JuliaAstro.github.io/VOTables.jl/stable)
 [![Dev](https://img.shields.io/badge/docs-dev-blue.svg)](https://JuliaAstro.github.io/VOTables.jl/dev)
 
-A [Tables.jl](https://github.com/JuliaData/Tables.jl)-based implementation of the VOTable standard. This allows simply accessing VOTables with Tables.jl sinks, like `DataFrame` from [DataFrames.jl](https::/github.com/JuliaData/DataFrames.jl).
+A [Tables.jl](https://github.com/JuliaData/Tables.jl)-based implementation of the VOTable standard. This allows simply accessing VOTables with Tables.jl sinks, like `DataFrame` from [DataFrames.jl](https://github.com/JuliaData/DataFrames.jl).
 
 !!! warning
     This package is fairly unpolished, and I (mileslucas) don't have a ton of time for developing it. Please use at your own caution, and I would be very eager for contributions. The end goal is to have a good suite of tools for accessing SIMBAD and Vizier, which requires a reliable VOTable parser.
 
 ## Installation
 
-```julia
-julia>] add https://github.com/JuliaAstro/VOTables.jl
+```julia-repl
+julia> ] # to drop into pkg-mode
+pkg> add https://github.com/JuliaAstro/VOTables.jl
 ```
 
 ## Usage
 
-```julia
+```julia-repl
 julia> using VOTables, DataFrames, URIs, HTTP
 
 julia> script = """
-output console=off script=off
-votable {
-    MAIN_ID
-    RA(s)
-    DEC(s)
-    PLX(V)
-    FLUX(V)
-    FLUX(G)
-    FLUX(H)
-}
-votable open
-set radius 5m
-query around HD 32297
-votable close
-""" |> URIs.escapeuri;
+       output console=off script=off
+       votable {
+           MAIN_ID
+           RA(s)
+           DEC(s)
+           PLX(V)
+           FLUX(V)
+           FLUX(G)
+           FLUX(H)
+       }
+       votable open
+       set radius 5m
+       query around HD 32297
+       votable close
+       """ |> URIs.escapeuri;
 
 julia> res = HTTP.get("https://simbad.u-strasbg.fr/simbad/sim-script", query="script=$script");
 
