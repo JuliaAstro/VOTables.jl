@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>Home · VOTables.jl</title><meta name="title" content="Home · VOTables.jl"/><meta property="og:title" content="Home · VOTables.jl"/><meta property="twitter:title" content="Home · VOTables.jl"/><meta name="description" content="Documentation for VOTables.jl."/><meta property="og:description" content="Documentation for VOTables.jl."/><meta property="twitter:description" content="Documentation for VOTables.jl."/><script data-outdated-warner src="assets/warner.js"></script><link href="https://cdnjs.cloudflare.com/ajax/libs/lato-font/3.0.0/css/lato-font.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/juliamono/0.050/juliamono.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/fontawesome.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/solid.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/brands.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.8/katex.min.css" rel="stylesheet" type="text/css"/><script>documenterBaseURL="."</script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" data-main="assets/documenter.js"></script><script src="search_index.js"></script><script src="siteinfo.js"></script><script src="../versions.js"></script><link class="docs-theme-link" rel="stylesheet" type="text/css" href="assets/themes/catppuccin-mocha.css" data-theme-name="catppuccin-mocha"/><link class="docs-theme-link" rel="stylesheet" type="text/css" href="assets/themes/catppuccin-macchiato.css" data-theme-name="catppuccin-macchiato"/><link class="docs-theme-link" rel="stylesheet" type="text/css" href="assets/themes/catppuccin-frappe.css" data-theme-name="catppuccin-frappe"/><link class="docs-theme-link" rel="stylesheet" type="text/css" href="assets/themes/catppuccin-latte.css" data-theme-name="catppuccin-latte"/><link class="docs-theme-link" rel="stylesheet" type="text/css" href="assets/themes/documenter-dark.css" data-theme-name="documenter-dark" data-theme-primary-dark/><link class="docs-theme-link" rel="stylesheet" type="text/css" href="assets/themes/documenter-light.css" data-theme-name="documenter-light" data-theme-primary/><script src="assets/themeswap.js"></script></head><body><div id="documenter"><nav class="docs-sidebar"><div class="docs-package-name"><span class="docs-autofit"><a href>VOTables.jl</a></span></div><button class="docs-search-query input is-rounded is-small is-clickable my-2 mx-auto py-1 px-2" id="documenter-search-query">Search docs (Ctrl + /)</button><ul class="docs-menu"><li class="is-active"><a class="tocitem" href>Home</a><ul class="internal"><li><a class="tocitem" href="#Installation"><span>Installation</span></a></li><li><a class="tocitem" href="#Usage"><span>Usage</span></a></li><li><a class="tocitem" href="#API/Reference"><span>API/Reference</span></a></li></ul></li></ul><div class="docs-version-selector field has-addons"><div class="control"><span class="docs-label button is-static is-size-7">Version</span></div><div class="docs-selector control is-expanded"><div class="select is-fullwidth is-size-7"><select id="documenter-version-selector"></select></div></div></div></nav><div class="docs-main"><header class="docs-navbar"><a class="docs-sidebar-button docs-navbar-link fa-solid fa-bars is-hidden-desktop" id="documenter-sidebar-button" href="#"></a><nav class="breadcrumb"><ul class="is-hidden-mobile"><li class="is-active"><a href>Home</a></li></ul><ul class="is-hidden-tablet"><li class="is-active"><a href>Home</a></li></ul></nav><div class="docs-right"><a class="docs-navbar-link" href="https://github.com/JuliaAstro/VOTables.jl" title="View the repository on GitHub"><span class="docs-icon fa-brands"></span><span class="docs-label is-hidden-touch">GitHub</span></a><a class="docs-navbar-link" href="https://github.com/JuliaAstro/VOTables.jl/blob/main/docs/src/index.md" title="Edit source on GitHub"><span class="docs-icon fa-solid"></span></a><a class="docs-settings-button docs-navbar-link fa-solid fa-gear" id="documenter-settings-button" href="#" title="Settings"></a><a class="docs-article-toggle-button fa-solid fa-chevron-up" id="documenter-article-toggle-button" href="javascript:;" title="Collapse all docstrings"></a></div></header><article class="content" id="documenter-page"><h1 id="VOTables.jl"><a class="docs-heading-anchor" href="#VOTables.jl">VOTables.jl</a><a id="VOTables.jl-1"></a><a class="docs-heading-anchor-permalink" href="#VOTables.jl" title="Permalink"></a></h1><p><a href="https://github.com/JuliaAstro/VOTables.jl"><img src="https://img.shields.io/badge/Code-GitHub-black.svg" alt="GitHub"/></a> <a href="https://github.com/JuliaAstro/VOTables.jl/actions/workflows/CI.yml?query=branch%3Amain"><img src="https://github.com/JuliaAstro/VOTables.jl/actions/workflows/CI.yml/badge.svg?branch=main" alt="Build Status"/></a> <a href="https://codecov.io/gh/JuliaAstro/VOTables.jl"><img src="https://codecov.io/gh/JuliaAstro/VOTables.jl/branch/main/graph/badge.svg" alt="Coverage"/></a> <a href="https://opensource.org/licenses/MIT"><img src="https://img.shields.io/badge/License-MIT-yellow.svg" alt="License"/></a></p><p><a href="https://JuliaAstro.github.io/VOTables.jl/stable"><img src="https://img.shields.io/badge/docs-stable-blue.svg" alt="Stable"/></a> <a href="https://JuliaAstro.github.io/VOTables.jl/dev"><img src="https://img.shields.io/badge/docs-dev-blue.svg" alt="Dev"/></a></p><p>A <a href="https://github.com/JuliaData/Tables.jl">Tables.jl</a>-based implementation of the VOTable standard. This allows simply accessing VOTables with Tables.jl sinks, like <code>DataFrame</code> from <a href="https://github.com/JuliaData/DataFrames.jl">DataFrames.jl</a>.</p><div class="admonition is-warning"><header class="admonition-header">Warning</header><div class="admonition-body"><p>This package is fairly unpolished, and I (mileslucas) don&#39;t have a ton of time for developing it. Please use at your own caution, and I would be very eager for contributions. The end goal is to have a good suite of tools for accessing SIMBAD and Vizier, which requires a reliable VOTable parser.</p></div></div><h2 id="Installation"><a class="docs-heading-anchor" href="#Installation">Installation</a><a id="Installation-1"></a><a class="docs-heading-anchor-permalink" href="#Installation" title="Permalink"></a></h2><pre><code class="language-julia-repl hljs">julia&gt; ] # to drop into pkg-mode
+pkg&gt; add https://github.com/JuliaAstro/VOTables.jl</code></pre><h2 id="Usage"><a class="docs-heading-anchor" href="#Usage">Usage</a><a id="Usage-1"></a><a class="docs-heading-anchor-permalink" href="#Usage" title="Permalink"></a></h2><pre><code class="language-julia-repl hljs">julia&gt; using VOTables, DataFrames, URIs, HTTP
+
+julia&gt; script = &quot;&quot;&quot;
+       output console=off script=off
+       votable {
+           MAIN_ID
+           RA(s)
+           DEC(s)
+           PLX(V)
+           FLUX(V)
+           FLUX(G)
+           FLUX(H)
+       }
+       votable open
+       set radius 5m
+       query around HD 32297
+       votable close
+       &quot;&quot;&quot; |&gt; URIs.escapeuri;
+
+julia&gt; res = HTTP.get(&quot;https://simbad.u-strasbg.fr/simbad/sim-script&quot;, query=&quot;script=$script&quot;);
+
+julia&gt; doc = VOTable(String(res.body))
+VOTable(1)
+
+julia&gt; tbl = DataFrame(doc[1])
+5×8 DataFrame
+ Row │ MAIN_ID                     RA_s                 DEC_s                PLX_VALUE_V   FLUX_V      FLUX_G       ⋯
+     │ String                      String               String               Float64?      Float32?    Float32?     ⋯
+─────┼───────────────────────────────────────────────────────────────────────────────────────────────────────────────
+   1 │ HD  32297                   05 02 27.4358754192  +07 27 39.678553260        7.7081        8.14        8.0983 ⋯
+   2 │ TYC  110-397-1              05 02 28.2895378704  +07 26 44.794496220        6.1047       10.38       10.1454
+   3 │ HD  32304                   05 02 31.4773514184  +07 25 26.492595600        5.8252        6.87        6.6137
+   4 │ TYC  110-639-1              05 02 28.2086922576  +07 24 30.008622924        1.4184       10.7        10.6589
+   5 │ CAIRNS J050239.37+072623.8  05 02 39.37          +07 26 23.8          missing       missing     missing      ⋯
+                                                                                                    3 columns omitted
+
+julia&gt; names(doc[1])
+8-element Vector{String}:
+ &quot;MAIN_ID&quot;
+ &quot;RA_s&quot;
+ &quot;DEC_s&quot;
+ &quot;PLX_VALUE_V&quot;
+ &quot;FLUX_V&quot;
+ &quot;FLUX_G&quot;
+ &quot;FLUX_H&quot;
+ &quot;SCRIPT_NUMBER_ID&quot;
+
+julia&gt; VOTables.units(doc[1])
+8-element Vector{Union{Missing, String}}:
+ missing
+ &quot;\&quot;h:m:s\&quot;&quot;
+ &quot;\&quot;d:m:s\&quot;&quot;
+ &quot;mas&quot;
+ &quot;mag&quot;
+ &quot;mag&quot;
+ &quot;mag&quot;
+ missing</code></pre><h2 id="API/Reference"><a class="docs-heading-anchor" href="#API/Reference">API/Reference</a><a id="API/Reference-1"></a><a class="docs-heading-anchor-permalink" href="#API/Reference" title="Permalink"></a></h2><ul></ul></article><nav class="docs-footer"><p class="footer-message">Powered by <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> and the <a href="https://julialang.org/">Julia Programming Language</a>.</p></nav></div><div class="modal" id="documenter-settings"><div class="modal-background"></div><div class="modal-card"><header class="modal-card-head"><p class="modal-card-title">Settings</p><button class="delete"></button></header><section class="modal-card-body"><p><label class="label">Theme</label><div class="select"><select id="documenter-themepicker"><option value="auto">Automatic (OS)</option><option value="documenter-light">documenter-light</option><option value="documenter-dark">documenter-dark</option><option value="catppuccin-latte">catppuccin-latte</option><option value="catppuccin-frappe">catppuccin-frappe</option><option value="catppuccin-macchiato">catppuccin-macchiato</option><option value="catppuccin-mocha">catppuccin-mocha</option></select></div></p><hr/><p>This document was generated with <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> version 1.8.1 on <span class="colophon-date" title="Friday 14 March 2025 03:51">Friday 14 March 2025</span>. Using Julia version 1.11.4.</p></section><footer class="modal-card-foot"></footer></div></div></div></body></html>
