@@ -1,3 +1,8 @@
+[![No Maintenance Intended](http://unmaintained.tech/badge.svg)](http://unmaintained.tech/)
+
+> [!WARNING]
+> This package is archived and will no longer be maintained. Please see [JuliaAPlavin/VOTables.jl](https://github.com/JuliaAPlavin/VOTables.jl) for a well-maintained alternative.
+
 # VOTables.jl
 
 [![Build Status](https://github.com/JuliaAstro/VOTables.jl/actions/workflows/CI.yml/badge.svg?branch=main)](https://github.com/JuliaAstro/VOTables.jl/actions/workflows/CI.yml?query=branch%3Amain)
